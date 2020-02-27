@@ -4,28 +4,7 @@ import PaletteFooter from "./PaletteFooter";
 import ColorBox from "./ColorBox";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
-
-const styles = {
-  Palette: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column"
-  },
-  paletteColor: {
-    height: "90%"
-  },
-  goBack: {
-    width: "20%",
-    height: "50%",
-    margin: "0 auto",
-    display: "inline-block",
-    position: "relative",
-    cursor: "pointer",
-    marginBottom: "-3.5px",
-    opacity: 1,
-    backgroundColor: "#000000"
-  }
-};
+import styles from "../style/Palette";
 
 class SingleColorPalette extends Component {
   constructor(props) {
