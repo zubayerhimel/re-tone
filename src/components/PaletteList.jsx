@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MiniPalette from "./MiniPalette";
 import { withStyles } from "@material-ui/styles";
 import styles from "../style/PaletteList";
-import { Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 class PaletteList extends Component {
   goToPalette = id => {

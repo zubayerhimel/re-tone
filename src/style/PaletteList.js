@@ -21,7 +21,11 @@ export default {
     alignItems: "center",
     "& a": {
       color: "white",
-      cursor: "pointer"
+      cursor: "pointer",
+      textDecoration: "none"
+    },
+    "& a:hover": {
+      borderBottom: "1px solid white"
     }
   },
   palettes: {
