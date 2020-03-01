@@ -111,6 +111,7 @@ export default function NewPaletteForm(props) {
   const addNewColor = () => {
     const newColor = { color: currentColor, name: newName };
     setColors([...colors, newColor]);
+    setNewName("");
   };
 
   const handleChange = evt => {
@@ -118,9 +119,9 @@ export default function NewPaletteForm(props) {
   };
 
   const handleSubmit = () => {
-    let newName = "New Test Palette";
+    let newName = "New Palette Name";
     const newPalette = {
-      paletteName: "New Test Palette",
+      paletteName: "New Palette Name",
       id: newName.toLowerCase().replace(/ /g, "-"),
       colors: colors
     };
@@ -149,7 +150,7 @@ export default function NewPaletteForm(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Create Color Palette
+            Persistent drawer
           </Typography>
           <Button variant="contained" color="primary" onClick={handleSubmit}>
             Save Palette
