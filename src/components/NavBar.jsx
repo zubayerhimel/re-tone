@@ -67,7 +67,6 @@ class NavBar extends Component {
               onClick={this.closeSnackbar}
               color="inherit"
               key="close"
-              aria-lebel="close"
             >
               <CloseIcon />
             </IconButton>

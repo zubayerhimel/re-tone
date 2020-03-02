@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Drawer, Button, Paper } from "@material-ui/core";
+import { Drawer, Button } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -15,6 +15,7 @@ import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import DraggableColorList from "./DraggableColorList";
 import { arrayMove } from "react-sortable-hoc";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 350;
 
@@ -77,6 +78,9 @@ const useStyles = makeStyles(theme => ({
     marginTop: "2rem",
     textAlign: "center",
     boxShadow: "3px 3px 3px 3px #a8a8a8"
+  },
+  goBack: {
+    textDecoration: "none"
   }
 }));
 
@@ -200,6 +204,11 @@ export default function NewPaletteForm(props) {
             <Button variant="contained" color="primary" type="submit">
               Save Palette
             </Button>
+            <Link to="/" className={classes.goBack}>
+              <Button variant="contained" color="secondary">
+                Go Back
+              </Button>
+            </Link>
           </ValidatorForm>
         </Toolbar>
       </AppBar>
