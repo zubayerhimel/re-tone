@@ -11,7 +11,6 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import DraggableColorList from "./DraggableColorList";
 import { arrayMove } from "react-sortable-hoc";
@@ -28,7 +27,9 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })
+    }),
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -82,7 +83,8 @@ const useStyles = makeStyles(theme => ({
   },
   goBack: {
     textDecoration: "none"
-  }
+  },
+  navBtns: {}
 }));
 
 NewPaletteForm.defaultProps = {
@@ -173,8 +175,10 @@ export default function NewPaletteForm(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            Create A Palette
           </Typography>
+        </Toolbar>
+        <div className={classes.navBtns}>
           <ValidatorForm onSubmit={handleSubmit}>
             <TextValidator
               label="Palette Name"
@@ -191,13 +195,13 @@ export default function NewPaletteForm(props) {
             <Button variant="contained" color="primary" type="submit">
               Save Palette
             </Button>
-            <Link to="/" className={classes.goBack}>
-              <Button variant="contained" color="secondary">
-                Go Back
-              </Button>
-            </Link>
           </ValidatorForm>
-        </Toolbar>
+          <Link to="/" className={classes.goBack}>
+            <Button variant="contained" color="secondary">
+              Go Back
+            </Button>
+          </Link>
+        </div>
       </AppBar>
       <Drawer
         className={classes.drawer}
