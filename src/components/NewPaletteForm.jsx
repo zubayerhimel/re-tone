@@ -34,7 +34,8 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.leavingScreen
     }),
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    alignItems: "center"
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -104,6 +105,12 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     width: "50%"
+  },
+  navBtns: {
+    marginRight: "1rem",
+    "& button": {
+      margin: "0 0.5rem"
+    }
   }
 }));
 
@@ -209,28 +216,30 @@ export default function NewPaletteForm(props) {
         </Toolbar>
         <div className={classes.navBtns}>
           <div>
-            <Button
-              variant="outlined"
-              color="primary"
-              onClick={handleClickOpen}
-            >
-              Open form dialog
-            </Button>
             <Dialog
               open={dialogueOpen}
               onClose={handleClose}
               aria-labelledby="form-dialog-title"
             >
-              <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-              <DialogContent>
-                <DialogContentText>
-                  To subscribe to this website, please enter your email address
-                  here. We will send updates occasionally.
-                </DialogContentText>
-                <ValidatorForm onSubmit={handleSubmit}>
+              <DialogTitle
+                id="form-dialog-title"
+                style={{ textTransform: "uppercase" }}
+              >
+                Choose a palette name
+              </DialogTitle>
+              <ValidatorForm onSubmit={handleSubmit}>
+                <DialogContent>
+                  <DialogContentText color="inherit">
+                    Please enter a name for your new beautiful palette. Make
+                    sure palette name is unique.
+                  </DialogContentText>
+
                   <TextValidator
                     label="Palette Name"
                     value={newPaletteName}
+                    fullWidth
+                    variant="outlined"
+                    margin="normal"
                     name="newPaletteName"
                     onChange={evt => setNewPaletteName(evt.target.value)}
                     validators={["required", "isPaletteNameUnique"]}
@@ -239,20 +248,16 @@ export default function NewPaletteForm(props) {
                       "Palette name must be unique"
                     ]}
                   />
-
-                  <Button variant="contained" color="primary" type="submit">
-                    Save Palette
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose} color="secondary">
+                    Cancel
                   </Button>
-                </ValidatorForm>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                  Cancel
-                </Button>
-                <Button onClick={handleClose} color="primary">
-                  Subscribe
-                </Button>
-              </DialogActions>
+                  <Button variant="contained" color="primary" type="submit">
+                    Save
+                  </Button>
+                </DialogActions>
+              </ValidatorForm>
             </Dialog>
           </div>
           <Link to="/" className={classes.goBack}>
@@ -260,6 +265,9 @@ export default function NewPaletteForm(props) {
               Go Back
             </Button>
           </Link>
+          <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+            Save Palette
+          </Button>
         </div>
       </AppBar>
       <Drawer
