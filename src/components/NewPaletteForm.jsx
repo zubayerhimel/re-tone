@@ -19,6 +19,8 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
+import SaveRoundedIcon from "@material-ui/icons/SaveRounded";
+import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
@@ -261,11 +263,20 @@ export default function NewPaletteForm(props) {
             </Dialog>
           </div>
           <Link to="/" className={classes.goBack}>
-            <Button variant="contained" color="secondary">
+            <Button
+              variant="contained"
+              color="default"
+              startIcon={<ArrowBackRoundedIcon />}
+            >
               Go Back
             </Button>
           </Link>
-          <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "#388e3c", color: "#ffffff" }}
+            endIcon={<SaveRoundedIcon />}
+            onClick={handleClickOpen}
+          >
             Save Palette
           </Button>
         </div>
@@ -295,6 +306,7 @@ export default function NewPaletteForm(props) {
           </Typography>
           <div className={classes.buttons}>
             <Button
+              size="small"
               variant="contained"
               color="secondary"
               onClick={clearPalette}
@@ -303,6 +315,7 @@ export default function NewPaletteForm(props) {
               Clear Palette{" "}
             </Button>
             <Button
+              size="small"
               variant="contained"
               color="primary"
               onClick={addRandomColor}
