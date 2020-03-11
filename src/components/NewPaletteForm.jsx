@@ -121,7 +121,7 @@ export default function NewPaletteForm(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap className={classes.navHeader}>
             Create A Palette
           </Typography>
         </Toolbar>
