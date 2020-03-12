@@ -47,7 +47,7 @@ export default {
       textDecoration: "none"
     },
     "& a:hover": {
-      borderBottom: "1px solid white"
+      textDecoration: "underline"
     }
   },
   palettes: {

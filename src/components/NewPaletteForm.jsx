@@ -87,6 +87,7 @@ export default function NewPaletteForm(props) {
       colors: colors
     };
     props.savePalette(newPalette);
+    setDialogueOpen(false);
     props.history.push("/");
   };
 
