@@ -49,6 +49,9 @@ export default {
       textDecoration: "underline"
     }
   },
+  header: {
+    fontSize: "1.5rem"
+  },
   palettes: {
     boxSizing: "border-box",
     width: "100%",

@@ -47,7 +47,7 @@ class PaletteList extends Component {
       <div className={classes.root}>
         <div className={classes.container}>
           <nav className={classes.nav}>
-            <h1>React Colors</h1>
+            <h1 className={classes.header}>React Colors</h1>
             <Link to="/palette/new">Create New Palette</Link>
           </nav>
           <TransitionGroup className={classes.palettes}>
@@ -55,9 +55,9 @@ class PaletteList extends Component {
               <CSSTransition key={palette.id} classNames="fade" timeout={500}>
                 <MiniPalette
                   {...palette}
+                  key={palette.id}
                   goToPalette={this.goToPalette}
                   openDialog={this.openDialoge}
-                  key={palette.id}
                   id={palette.id}
                 />
               </CSSTransition>
