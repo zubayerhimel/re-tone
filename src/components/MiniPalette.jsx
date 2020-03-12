@@ -10,7 +10,7 @@ function MiniPalette(props) {
     paletteName,
     emoji,
     colors,
-    handleClick,
+    goToPalette,
     openDialog,
     id
   } = props;
@@ -27,6 +27,10 @@ function MiniPalette(props) {
   const deletePalette = e => {
     e.stopPropagation();
     openDialog(id);
+  };
+
+  const handleClick = () => {
+    goToPalette(id);
   };
 
   return (
