@@ -41,8 +41,8 @@ class PaletteList extends Component {
     this.props.history.push(`/palette/${id}`);
   };
   render() {
-    const { palettes, classes, removePalette } = this.props;
-    const { openDeleteDialog, deletingId } = this.state;
+    const { palettes, classes } = this.props;
+    const { openDeleteDialog } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.container}>

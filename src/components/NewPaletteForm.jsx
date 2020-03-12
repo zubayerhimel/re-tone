@@ -24,6 +24,7 @@ import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import useStyles from "../style/PaletteForm";
+import seedColors from "./seedColors";
 
 NewPaletteForm.defaultProps = {
   maxColor: 20
@@ -35,9 +36,7 @@ export default function NewPaletteForm(props) {
   const [dialogueOpen, setDialogueOpen] = React.useState(false);
   const [open, setOpen] = useState(true);
   const [newPaletteName, setNewPaletteName] = useState("");
-  const [colors, setColors] = useState(
-    props.palettesList[0].colors.slice(0, 10)
-  );
+  const [colors, setColors] = useState(seedColors[0].colors.slice(0, 10));
 
   useEffect(() => {
     ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
