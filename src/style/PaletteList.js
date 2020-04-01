@@ -49,6 +49,10 @@ export default {
       textDecoration: "underline"
     }
   },
+  restore: {
+    color: "white",
+    marginLeft: "1rem"
+  },
   header: {
     fontSize: "1.5rem"
   },

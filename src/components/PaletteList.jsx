@@ -7,9 +7,10 @@ import Dialog from "@material-ui/core/Dialog";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
+import { Avatar, IconButton, Tooltip } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
+import CachedIcon from "@material-ui/icons/Cached";
 import red from "@material-ui/core/colors/red";
 import blue from "@material-ui/core/colors/blue";
 import { Link } from "react-router-dom";
@@ -40,6 +41,11 @@ class PaletteList extends Component {
   goToPalette = id => {
     this.props.history.push(`/palette/${id}`);
   };
+
+  clearLocalStorageAndRefreshPage = () => {
+    window.localStorage.clear();
+    window.location.reload(false);
+  };
   render() {
     const { palettes, classes } = this.props;
     const { openDeleteDialog } = this.state;
@@ -48,7 +54,19 @@ class PaletteList extends Component {
         <div className={classes.container}>
           <nav className={classes.nav}>
             <h1 className={classes.header}>React Colors</h1>
-            <Link to="/palette/new">Create New Palette</Link>
+            <div>
+              <Link to="/palette/new">Create New Palette</Link>
+              <Tooltip title="Restore default palettes">
+                <IconButton
+                  className={classes.restore}
+                  color="primary"
+                  aria-label="refresh to get default palettes"
+                  onClick={this.clearLocalStorageAndRefreshPage}
+                >
+                  <CachedIcon />
+                </IconButton>
+              </Tooltip>
+            </div>
           </nav>
           <TransitionGroup className={classes.palettes}>
             {palettes.map(palette => (
